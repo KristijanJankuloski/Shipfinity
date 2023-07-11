@@ -5,7 +5,10 @@
         <div class="text-white">
           <span><i class="bi bi-envelope-fill"></i> contact@shipfinity.com</span>
         </div>
-        <div class="text-white text-end"><a class="nav-link" routerLink="login"><i class="bi bi-person-fill"></i> Log in</a></div>
+        <div class="text-white text-end d-flex">
+          <a class="nav-link me-3" routerLink="login"><i class="bi bi-person-fill"></i> Log in</a>
+          <a class="nav-link" href="#"><i class="bi bi-shop"></i> Seller's portal</a>
+        </div>
       </div>
     </div>
   </div>
@@ -40,8 +43,8 @@
             </ul>
             <form class="d-flex">
               <a id="shopping-cart-btn" class="btn btn-outline-success me-2" routerLink="/cart"><i class="bi bi-cart"></i><span *ngIf="cartItems > 0" class="cart-badge">{{cartItems.toString()}}</span></a>
-              <form #sendSearch="ngForm" (ngSubmit)="searchClickEvent(sendSearch)" class="d-flex" >
-                <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search" ngModel />
+              <form #sendSearch="ngForm" (ngSubmit)="searchClickEvent(sendSearch)" class="d-flex" id="searchForm" >
+                <input id="searchInput" class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search" ngModel />
                 <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
               </form>
             </form>

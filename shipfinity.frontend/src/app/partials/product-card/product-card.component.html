@@ -1,0 +1,13 @@
+<div class="card">
+    <img class="card-img-top" src="/assets/img/product/no_img.png" alt="card image">
+    <div class="card-header">
+        <h4 class="card-title">{{ product.name }}</h4>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{ product.price }}</p>
+    </div>
+    <div class="card-footer">
+        <a [routerLink]="['/product', product.id]" class="btn btn-sm btn-secondary me-2">Read more</a>
+        <button type="button" class="btn btn-sm btn-success" (click)="addToCartClick()">Add to cart</button>
+    </div>
+</div>

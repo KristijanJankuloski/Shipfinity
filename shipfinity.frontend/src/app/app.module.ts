@@ -15,6 +15,7 @@ import { FooterComponent } from './partials/footer/footer.component';
 import { SaleComponent } from './sale/sale.component';
 import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProductCardComponent } from './partials/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FooterComponent,
     SaleComponent,
     SearchComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

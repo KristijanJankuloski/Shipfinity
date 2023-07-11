@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Category } from '../shared/models/enums';
+import Product from '../shared/models/product';
 
 @Component({
   selector: 'app-category',
@@ -10,6 +11,10 @@ import { Category } from '../shared/models/enums';
 export class CategoryComponent {
   id: number = 0;
   categoryName: string = '';
+  productList: Product[] = [
+    new Product(1, "Smart light", "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel recusandae ullam quae ex. Consectetur, molestias officia. Incidunt, possimus aspernatur. Impedit?", 25, 1),
+    new Product(2, "Smart light2", "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel recusandae ullam quae ex. Consectetur, molestias officia. Incidunt, possimus aspernatur. Impedit?", 22, 1)
+  ];
 
   constructor(private route: ActivatedRoute, private router: Router){}
 

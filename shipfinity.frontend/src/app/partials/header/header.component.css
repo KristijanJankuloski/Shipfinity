@@ -6,6 +6,14 @@
     width: 150px;
 }
 
+#searchForm{
+    flex-grow: 1;
+}
+
+#searchInput {
+    flex-grow: 1;
+}
+
 #shopping-cart-btn {
     position: relative;
 }
