@@ -29,3 +29,9 @@
     background-color: var(--bs-warning);
     border-radius: 50%;
 }
+
+@media screen and (max-width: 768px) {
+    .top-bar-contact-info {
+        display: none;
+    }
+}

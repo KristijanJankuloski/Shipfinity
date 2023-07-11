@@ -4,14 +4,18 @@ export default class Product {
     description: string;
     price: number;
     categoryId: number;
+    discountPercentage: number;
+    rating?: number;
     imageUrl?: string;
 
-    constructor(id?:number, name?: string, description?: string, price?: number, categoryId?: number, imageUrl?: string){
-        this.id = id? id : 0;
-        this.name = name? name : "No name";
-        this.description = description? description : "No description";
-        this.price = price? price : 0;
-        this.categoryId = categoryId? categoryId : 0;
-        this.imageUrl = imageUrl? imageUrl : undefined;
+    constructor(id?:number, name?: string, description?: string, price?: number, categoryId?: number, discount?: number, rating?: number, imageUrl?: string){
+        this.id = !id? 0 : id;
+        this.name = !name? "no name" : name;
+        this.description = !description? "no description" : description;
+        this.price = !price? 0 : price;
+        this.categoryId = !categoryId? 0 : categoryId;
+        this.discountPercentage = !discount? 0 : discount;
+        this.rating = !rating? 0 : rating;
+        this.imageUrl = !imageUrl? undefined : imageUrl;
     }
 }
