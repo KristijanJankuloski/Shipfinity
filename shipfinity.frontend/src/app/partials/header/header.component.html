@@ -1,5 +1,5 @@
 <header class="">
-  <div id="top-bar" class="bg-secondary">
+  <div id="top-bar">
     <div class="container pt-1 pb-1">
       <div class="d-flex justify-content-between">
         <div class="text-white top-bar-contact-info">
@@ -42,7 +42,7 @@
               </li>
             </ul>
             <form class="d-flex">
-              <a id="shopping-cart-btn" class="btn btn-outline-success me-2" routerLink="/cart"><i class="bi bi-cart"></i><span *ngIf="cartItems > 0" class="cart-badge">{{cartItems.toString()}}</span></a>
+              <a id="shopping-cart-btn" class="btn btn-outline-success me-3" routerLink="/cart"><i class="bi bi-cart"></i><span *ngIf="cartItems > 0" class="cart-badge">{{cartItems.toString()}}</span></a>
               <form #sendSearch="ngForm" (ngSubmit)="searchClickEvent(sendSearch)" class="d-flex" id="searchForm" >
                 <input id="searchInput" class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search" ngModel />
                 <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NotificationService } from './shared/services/notification.service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shipfinity.frontend';
+  successNotification$ = this.notificationService.successMessageAction$.pipe(tap(message => {
+    setTimeout(() =>{
+      this.notificationService.clearMessages();
+    }, 5000);
+  }));
+
+  constructor(private notificationService: NotificationService){}
 }

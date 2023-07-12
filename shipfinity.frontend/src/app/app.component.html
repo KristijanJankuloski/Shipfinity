@@ -1,7 +1,11 @@
 <app-header />
 <!-- id="main-body-bg" class="bg-image" for starts -->
 <main>
-    <div></div>
+    <div class="container" *ngIf="successNotification$ | async as successNotification">
+        <div class="alert alert-success notification-box">
+            {{successNotification}}
+        </div>
+    </div>
     <router-outlet></router-outlet>
 </main>
 <app-footer />
