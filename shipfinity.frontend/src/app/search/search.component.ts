@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import Product from '../shared/models/product';
 
 @Component({
   selector: 'app-search',
@@ -8,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SearchComponent {
   keyword: string = "";
+  results: Product[] = [];
 
   constructor(private route: ActivatedRoute){}
 

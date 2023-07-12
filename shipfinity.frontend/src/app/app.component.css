@@ -6,9 +6,3 @@ main {
     height: 100vh;
     background-image: url("/assets/img/stars_bg.jpg");
 }
-
-.notification-box {
-    position: fixed;
-    top: 116px;
-    right: 16px;
-}

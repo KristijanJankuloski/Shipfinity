@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import Product from 'src/app/shared/models/product';
+import ProductOrder from 'src/app/shared/models/product-order';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 
@@ -14,7 +15,7 @@ export class ProductCardComponent {
   constructor(private shoppingCartService: ShoppingCartService, private notificationService: NotificationService){}
 
   addToCartClick() {
-    this.shoppingCartService.addItem(this.product);
-    this.notificationService.successMessage("Item added to cart");
+    this.shoppingCartService.addItem(new ProductOrder(this.product, 1));
+    this.notificationService.successMessage(`${this.product.name} added to cart`);
   }
 }

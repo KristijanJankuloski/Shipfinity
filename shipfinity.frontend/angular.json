@@ -47,6 +47,12 @@
                   "maximumError": "4kb"
                 }
               ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/shipfinity.frontend/src/environments/environment.ts",
+                  "with": "apps/shipfinity.frontend/src/environments/environment.prod.ts"
+                }
+              ],
               "outputHashing": "all"
             },
             "development": {

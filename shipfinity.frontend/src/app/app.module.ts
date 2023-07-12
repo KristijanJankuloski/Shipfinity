@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { SaleComponent } from './sale/sale.component';
 import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductCardComponent } from './partials/product-card/product-card.component';
+import { MessageNotificationComponent } from './partials/message-notification/message-notification.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +34,15 @@ import { ProductCardComponent } from './partials/product-card/product-card.compo
     SaleComponent,
     SearchComponent,
     PageNotFoundComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    MessageNotificationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
