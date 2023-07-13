@@ -12,7 +12,7 @@ export class CategoryComponent {
   id: number = 0;
   categoryName: string = '';
   productList: Product[] = [
-    new Product(1, "Smart light", "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel recusandae ullam quae ex. Consectetur, molestias officia. Incidunt, possimus aspernatur. Impedit?", 25, 1),
+    new Product(1, "Smart light", "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel recusandae ullam quae ex. Consectetur, molestias officia. Incidunt, possimus aspernatur. Impedit?", 25, 1, 20, 4),
     new Product(2, "Smart light2", "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel recusandae ullam quae ex. Consectetur, molestias officia. Incidunt, possimus aspernatur. Impedit?", 22, 1)
   ];
 

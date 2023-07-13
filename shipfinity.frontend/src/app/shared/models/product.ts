@@ -5,7 +5,7 @@ export default class Product {
     price: number;
     categoryId: number;
     discountPercentage: number;
-    rating?: number;
+    rating: number;
     imageUrl?: string;
 
     constructor(id?:number, name?: string, description?: string, price?: number, categoryId?: number, discount?: number, rating?: number, imageUrl?: string){

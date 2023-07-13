@@ -34,8 +34,9 @@
                         <td class="align-middle">${{ item.product.price.toFixed(2) }}</td>
                         <td class="align-middle">
                             <div class="d-flex gap-2 justify-content-end">
+                                <h6>Quantity: </h6>
                                 <input type="number" min="1" max="99" [value]="item.quantity" class="form-control w-50" (change)="changeQuantity($event, item)" />
-                                <button type="button" (click)="removeItem(item)" class="btn btn-sm btn-danger">Delete</button>
+                                <button type="button" (click)="removeItem(item)" class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -45,7 +46,7 @@
                 <hr>
                 <div class="d-flex justify-content-around">
                     <h4>Total: $<span>{{ totalPrice.toFixed(2) }}</span></h4>
-                    <button type="button" class="btn btn-lg btn-success">Proceed to checkout</button>    
+                    <a routerLink="/checkout" class="btn btn-lg btn-success">Proceed to checkout</a>    
                 </div>
             </div>
         </div>
