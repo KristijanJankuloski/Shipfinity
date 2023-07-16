@@ -52,15 +52,30 @@
                         <div class="row">
                             <div class="col">
                                 <label for="expiryMonth">Expiry Month</label>
-                                <input class="input-text" type="text" id="expiryMonth" name="expiryMonth" placeholder="September" required>
+                                <select name="expiryMonth" id="expiryMonth" class="form-select input-text" required>
+                                    <option value="/" selected disabled>-- Select --</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <!-- <input class="input-text" type="text" id="expiryMonth" name="expiryMonth" placeholder="September" required> -->
                             </div>
                             <div class="col">
                                 <label for="expiryYear">Expiry Year</label>
-                                <input class="input-text" type="text" id="expiryYear" name="expiryYear" placeholder="2023" required>
+                                <input class="input-text" type="number" id="expiryYear" name="expiryYear" placeholder="2023" required>
                             </div>
                             <div class="col">
                                 <label for="cvv">CVV</label>
-                                <input class="input-text" type="text" id="cvv" name="cvv" placeholder="123" required>
+                                <input class="input-text" type="number" id="cvv" name="cvv" placeholder="123" required>
                             </div>
                         </div>
                     </div>

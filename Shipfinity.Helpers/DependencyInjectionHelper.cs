@@ -19,6 +19,9 @@ namespace Shipfinity.Helpers
         {
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<ISellerRepository, SellerRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
         }
 
         public static void InjectServices(this IServiceCollection services)

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NotificationService } from './shared/services/notification.service';
 import { tap } from 'rxjs';
+import { ShoppingCartService } from './shared/services/shopping-cart.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,5 +15,12 @@ export class AppComponent {
     }, 5000);
   }));
 
-  constructor(private notificationService: NotificationService){}
+  constructor(private notificationService: NotificationService, private shoppingCartService: ShoppingCartService){}
+
+  ngOnInit(){
+    let cart = localStorage.getItem("shopping-cart");
+    if(cart){
+      this.shoppingCartService.setCart(JSON.parse(cart));
+    }
+  }
 }

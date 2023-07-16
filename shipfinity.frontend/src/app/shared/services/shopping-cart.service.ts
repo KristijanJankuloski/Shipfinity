@@ -14,8 +14,14 @@ export class ShoppingCartService {
     return this.cartSubject.asObservable();
   }
 
+  setCart(cart: ProductOrder[]){
+    this.shoppingCart = cart;
+    this.cartSubject.next(this.shoppingCart);
+  }
+
   addItem(newItem: ProductOrder) {
     this.shoppingCart.push(newItem);
+    localStorage.setItem("shopping-cart", JSON.stringify(this.shoppingCart));
     this.cartSubject.next(this.shoppingCart);
   }
 
@@ -24,12 +30,14 @@ export class ShoppingCartService {
     if(index !== -1){
       this.shoppingCart[index].setQuantity(q);
     }
+    localStorage.setItem("shopping-cart", JSON.stringify(this.shoppingCart));
   }
-
+  
   removeItem(item: ProductOrder){
     const index = this.shoppingCart.indexOf(item);
     if(index !== -1){
       this.shoppingCart.splice(index, 1);
+      localStorage.setItem("shopping-cart", JSON.stringify(this.shoppingCart));
       this.cartSubject.next(this.shoppingCart);
     }
   }

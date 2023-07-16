@@ -9,6 +9,7 @@ namespace Shipfinity.DataAccess.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Seller> Sellers { get; set; }
         public AppDbContext(DbContextOptions dbContextOptions) :
             base(dbContextOptions)
         { }
@@ -36,6 +37,11 @@ namespace Shipfinity.DataAccess.Context
                 .HasMany(c => c.Products)
                 .WithOne(p => p.Category)
                 .HasForeignKey(p => p.CategoryId);
+
+            modelBuilder.Entity<Seller>()
+                .HasMany(s => s.Products)
+                .WithOne(p => p.Seller)
+                .HasForeignKey(p => p.SellerId);
         }
     }
 }
