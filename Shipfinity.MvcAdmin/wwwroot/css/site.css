@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
 html {
   font-size: 14px;
 }
@@ -15,4 +17,13 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.brand-img {
+    font-family: 'Righteous', sans-serif;
+    font-size: 1.6rem;
+}
+
+.brand-image {
+    height: 40px;
 }

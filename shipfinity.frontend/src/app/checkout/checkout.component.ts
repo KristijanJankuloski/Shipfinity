@@ -25,4 +25,8 @@ export class CheckoutComponent {
     });
     return total;
   }
+
+  paymentFormSubmitted(){
+    
+  }
 }

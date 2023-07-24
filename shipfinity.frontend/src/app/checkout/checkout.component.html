@@ -1,7 +1,7 @@
 <div class="row mt-5 mb-5">
     <div class="col-75">
         <div class="main_container">
-            <form name="form_action">
+            <form name="form_action" (ngSubmit)="paymentFormSubmitted()">
                 <div class="row">
                     <div class="col-50">
                         <h3>Billing Address</h3>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="col">
                                 <label for="expiryYear">Expiry Year</label>
-                                <input class="input-text" type="number" id="expiryYear" name="expiryYear" placeholder="2023" required>
+                                <input class="input-text" min="1977" max="9999" type="number" id="expiryYear" name="expiryYear" placeholder="2023" required>
                             </div>
                             <div class="col">
                                 <label for="cvv">CVV</label>
@@ -83,7 +83,7 @@
                 <label>
                     <input type="checkbox" class="mb-3" checked="checked" name="shippingAddress"> Shipping address same as billing address
                 </label>
-                <button type="button" class="btn btn-lg btn-primary me-2" data-bs-toggle="modal" data-bs-target="#checkoutModal">Order and pay</button>
+                <button type="submit" class="btn btn-lg btn-primary me-2" data-bs-toggle="modal" data-bs-target="#checkoutModal">Order and pay</button>
                 <button type="button" class="btn btn-lg btn-secondary"> Continue with paypal <i class="bi bi-paypal"></i></button>
             </form>
         </div>

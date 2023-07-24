@@ -35,6 +35,14 @@ namespace Shipfinity.DataAccess.Repositories.Implementations
             return await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
         }
 
+        public async Task<List<Category>> GetRangeAsync(int start, int end)
+        {
+            return await _context.Categories
+                .Skip(start)
+                .Take(end)
+                .ToListAsync();
+        }
+
         public async Task InsertAsync(Category entity)
         {
             await _context.Categories.AddAsync(entity);

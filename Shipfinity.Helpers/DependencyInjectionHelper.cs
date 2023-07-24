@@ -17,11 +17,11 @@ namespace Shipfinity.Helpers
 
         public static void InjectRepositories(this IServiceCollection services)
         {
-            services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<ICategoryRepository, CategoryRepository>();
-            services.AddTransient<ICustomerRepository, CustomerRepository>();
-            services.AddTransient<ISellerRepository, SellerRepository>();
-            services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<ISellerRepository, SellerRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
         }
 
         public static void InjectServices(this IServiceCollection services)

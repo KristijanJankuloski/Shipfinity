@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shipfinity.Domain.Models;
 using Shipfinity.Services.Interfaces;
+using Shipfinity.ViewModels.CategoryViewModels;
 
 namespace Shipfinity.MvcAdmin.Controllers
 {
@@ -23,7 +24,7 @@ namespace Shipfinity.MvcAdmin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Category? category) {
+        public async Task<IActionResult> Create(CategoryCreateViewModel? category) {
             if(category == null)
             {
                 TempData["Error"] = "Category not provided";
@@ -31,6 +32,7 @@ namespace Shipfinity.MvcAdmin.Controllers
             }
 
             await _categoryService.CreateAsync(category.Name);
+            TempData["Success"] = "Category created";
             return RedirectToAction("Index");
         }
     }

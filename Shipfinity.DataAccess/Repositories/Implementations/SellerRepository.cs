@@ -39,6 +39,14 @@ namespace Shipfinity.DataAccess.Repositories.Implementations
             return await _context.Sellers.FirstOrDefaultAsync(s => s.Id == id);
         }
 
+        public async Task<List<Seller>> GetRangeAsync(int start, int count)
+        {
+            return await _context.Sellers
+                .Skip(start)
+                .Take(count)
+                .ToListAsync();
+        }
+
         public async Task InsertAsync(Seller entity)
         {
             await _context.Sellers.AddAsync(entity);

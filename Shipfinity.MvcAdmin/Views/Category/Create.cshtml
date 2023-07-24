@@ -1,4 +1,4 @@
-﻿@model Category
+﻿@model CategoryCreateViewModel
 @{
     ViewData["Title"] = "Create category";
 }
@@ -13,6 +13,10 @@
                 <div class="mb-3">
                     <label asp-for="Name" class="form-label">Name</label>
                     <input asp-for="Name" type="text" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="DisplayName" class="form-label">Display Name</label>
+                    <input asp-for="DisplayName" type="text" class="form-control" required />
                 </div>
                 <button type="submit" class="btn btn-success">Create category</button>
                 <a asp-controller="Category" asp-action="Index" class="btn btn-secondary">Go back</a>

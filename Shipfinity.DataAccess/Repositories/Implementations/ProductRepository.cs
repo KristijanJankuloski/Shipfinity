@@ -27,17 +27,40 @@ namespace Shipfinity.DataAccess.Repositories.Implementations
 
         public async Task<List<Product>> GetAllAsync()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products.Include(p => p.Category).ToListAsync();
         }
 
         public async Task<List<Product>> GetAllByCategoryIdAsync(int categoryId)
         {
-            return await _context.Products.Where(p => p.CategoryId == categoryId).ToListAsync();
+            return await _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Seller)
+                .Where(p => p.CategoryId == categoryId)
+                .ToListAsync();
         }
 
         public async Task<Product> GetByIdAsync(int id)
         {
             return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+        }
+
+        public async Task<List<Product>> GetRangeAsync(int start, int count)
+        {
+            return await _context.Products
+                .Include(p => p.Seller)
+                .Skip(start)
+                .Take(count)
+                .ToListAsync();
+        }
+
+        public async Task<List<Product>> GetRangeOrderedByPrice(int price, int start, int count)
+        {
+            return await _context.Products
+                .Include(p => p.Seller)
+                .OrderBy(p => p.Price)
+                .Skip(start)
+                .Take(count)
+                .ToListAsync();
         }
 
         public async Task InsertAsync(Product entity)
