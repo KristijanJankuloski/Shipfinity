@@ -15,4 +15,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Shipfinity.Domain\Shipfinity.Domain.csproj" />
+    <ProjectReference Include="..\Shipfinity.Helpers\Shipfinity.Helpers.csproj" />
+    <ProjectReference Include="..\Shipfinity.Services\Shipfinity.Services.csproj" />
+    <ProjectReference Include="..\Shipfinity.Shared\Shipfinity.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

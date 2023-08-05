@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Shipfinity.DataAccess.Context;
 using Shipfinity.DataAccess.Repositories.Implementations;
 using Shipfinity.DataAccess.Repositories.Interfaces;
+using Shipfinity.Domain.Models;
 using Shipfinity.Services.Implementations;
 using Shipfinity.Services.Interfaces;
 
@@ -27,6 +28,7 @@ namespace Shipfinity.Helpers
         public static void InjectServices(this IServiceCollection services)
         {
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IProductService, ProductService>();
         }
     }
 }
