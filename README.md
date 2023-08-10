@@ -17,7 +17,7 @@ A collaborative group projects by the members of G1 at the SEDC programming acad
 - Angular 16
 
 ### Installation ⚙️
-1. Clone the repository: git clone `[https://github.com/KristijanJankuloski/Shipfinity.git](https://github.com/KristijanJankuloski/Shipfinity.git)`
+1. Clone the repository: `git clone https://github.com/KristijanJankuloski/Shipfinity.git`
 2. Open in preferred IDE
 3. Configure project
 4. Update database from migrations
