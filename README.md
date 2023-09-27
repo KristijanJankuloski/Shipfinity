@@ -3,21 +3,22 @@ A collaborative group projects by the members of G1 at the SEDC programming acad
 
 ![cs](img/cs_sm.png) ![dotnet](img/dotnet_sm.png) ![angular](img/angular_sm.png)
 
+DEMO: [Demo Application](https://ashy-mushroom-0eba5ac03.3.azurestaticapps.net/)
+
 ## Features ⚡
 - Entity Framework Core: The application uses Entity Framework Core as the ORM to interact with the underlying database.
 - Repository Pattern: The application follows the repository pattern to separate data access logic from business logic.
 - Responsive UI: The application provides a responsive user interface in angular using Bootstrap.
-- ASP.NET MVC app as an Administrator page.
 
 ## Usage 🖥️
 ### Prerequisites 📦
 - .NET Core 6.0
 - SQL Server (or any other supported database) installed and configured
 - node.js 18 or later
-- Angular 16
+- Angular 15
 
 ### Installation ⚙️
-1. Clone the repository: `git clone https://github.com/KristijanJankuloski/Shipfinity.git`
+1. Clone the repository: `git clone https://github.com/sedc-codeacademy/sp2023-cp02-dsw-5.git`
 2. Open in preferred IDE
 3. Configure project
 4. Update database from migrations
