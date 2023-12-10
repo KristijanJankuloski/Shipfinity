@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Shipfinity.Domain.Models
 {
@@ -26,5 +21,6 @@ namespace Shipfinity.Domain.Models
         [MaxLength(150)]
         public string? ImageUrl { get; set; }
         public List<ProductOrder> ProductOrders { get; set; } = new();
+        public List<ReviewProduct> ProductReviews { get; set; } = new();
     }
 }

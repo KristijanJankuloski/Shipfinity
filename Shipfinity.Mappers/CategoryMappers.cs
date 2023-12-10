@@ -1,11 +1,5 @@
 ﻿using Shipfinity.Domain.Models;
 using Shipfinity.DTOs.CategoryDTOs;
-using Shipfinity.ViewModels.CategoryViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shipfinity.Mappers
 {
@@ -18,6 +12,7 @@ namespace Shipfinity.Mappers
             {
                 Id = category.Id,
                 Name = category.Name,
+                DisplayName = category.DisplayName,
             };
         }
 
@@ -26,15 +21,17 @@ namespace Shipfinity.Mappers
             return new Category
             {
                 Name = createCategoryDto.Name,
+                DisplayName = createCategoryDto.DisplayName,
             };
         }
 
-        public static Category MapToCategory(UpdateCategoryDto updateCategoryDto)
+        public static Category MapToCategory(this UpdateCategoryDto updateCategoryDto)
         {
             return new Category
             {
                 Id = updateCategoryDto.Id,
                 Name = updateCategoryDto.Name,
+                DisplayName = updateCategoryDto.DisplayName,
             };
         }
     }

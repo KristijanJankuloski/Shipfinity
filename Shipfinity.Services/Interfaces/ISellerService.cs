@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Shipfinity.DTOs.SellerDTO_s;
 
 namespace Shipfinity.Services.Interfaces
 {
     public interface ISellerService
     {
+        Task ResetPasswordAsync(SellerPasswordResetDto passwordResetDto);
     }
 }

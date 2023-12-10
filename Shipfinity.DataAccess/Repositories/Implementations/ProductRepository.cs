@@ -70,10 +70,80 @@ namespace Shipfinity.DataAccess.Repositories.Implementations
             await _context.SaveChangesAsync();
         }
 
+        public async Task<List<Product>> SearchProductsAsync(string keyword)
+        {
+            return await _context.Products
+                .Where(p => p.Name.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+                .ToListAsync();
+        }
+
         public async Task UpdateAsync(Product entity)
         {
             _context.Products.Update(entity);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateProductPhotoUrlAsync(int productId, string photoUrl)
+        {
+            var product = await _context.Products.FindAsync(productId);
+            if (product == null)
+            {
+                throw new ProductNotFoundException(productId);
+            }
+
+            product.ImageUrl = photoUrl;
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task AddProductReviewAsync(ReviewProduct reviewProduct)
+        {
+            if (reviewProduct.Rating < 1 || reviewProduct.Rating > 5)
+            {
+                throw new ArgumentException("Rating must be between 1 and 5.");
+            }
+            await _context.ProductReviews.AddAsync(reviewProduct);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<Product>> GetProductsOnSaleAsync()
+        {
+            return await _context.Products
+                .Where(p => p.DiscountPercenrage > 0)
+                .Include(p => p.Category)
+                .ToListAsync();
+        }
+
+        public async Task<int> GetCount(int categoryId = 0)
+        {
+            if(categoryId == 0)
+            {
+                return await _context.Products.CountAsync();
+            }
+            return await _context.Products.CountAsync(x => x.CategoryId == categoryId);
+        }
+
+        public async Task<List<Product>> GetRangeByCategoryId(int categoryId, int start, int count)
+        {
+            return await _context.Products
+                .Where(x => x.CategoryId == categoryId)
+                .Skip(start)
+                .Take(count)
+                .ToListAsync();
+        }
+
+        public async Task<List<Product>> GetProductsBySellerIdAsync(int sellerId)
+        {
+            return await _context.Products
+                .Where(p => p.SellerId == sellerId)
+                .ToListAsync();
+        }
+
+        public async Task<List<ReviewProduct>> GetProductReviewsByProductIdAsync(int productId)
+        {
+            return await _context.ProductReviews
+                .Where(p => p.ProductId == productId)
+                .ToListAsync();
         }
     }
 }

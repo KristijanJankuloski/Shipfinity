@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Shipfinity.DTOs.ProductDTO_s
 {
@@ -24,6 +19,8 @@ namespace Shipfinity.DTOs.ProductDTO_s
         [Required]
         public int CategoryId { get; set; }
 
-        public string ImageUrl { get; set; }
+        [Required]
+        [Range(0, 100)]
+        public int DiscountPercentage { get; set; }
     }
 }

@@ -1,10 +1,5 @@
 ﻿using Shipfinity.Domain.Models;
 using Shipfinity.DTOs.ProductDTO_s;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shipfinity.Mappers
 {
@@ -19,7 +14,9 @@ namespace Shipfinity.Mappers
                 Description = product.Description,
                 Price = product.Price,
                 CategoryId = product.CategoryId,
-                ImageUrl = product.ImageUrl
+                ImageUrl = product.ImageUrl,
+                Rating = product.Rating
+
             };
         }
 
@@ -31,7 +28,9 @@ namespace Shipfinity.Mappers
                 Description = productCreateDto.Description,
                 Price = productCreateDto.Price,
                 CategoryId = productCreateDto.CategoryId,
-                ImageUrl = productCreateDto.ImageUrl
+                DiscountPercenrage = 0,
+                Rating = 0,
+                ImageUrl = null
             };
         }
 
@@ -41,7 +40,33 @@ namespace Shipfinity.Mappers
             product.Description = productUpdateDto.Description;
             product.Price = productUpdateDto.Price;
             product.CategoryId = productUpdateDto.CategoryId;
-            product.ImageUrl = productUpdateDto.ImageUrl;
+            product.DiscountPercenrage = productUpdateDto.DiscountPercentage;
+        }
+
+        public static ReviewProductReadDto MapToReadDto(ReviewProduct reviewProduct)
+        {
+            return new ReviewProductReadDto
+            {
+                Comment = reviewProduct.Comment,
+                Rating = reviewProduct.Rating,
+                ProductId = reviewProduct.ProductId,
+                CustomerId = reviewProduct.CustomerId
+            };
+        }
+
+        public static ProductDetailsDto MapToDetailsDto(Product product)
+        {
+            return new ProductDetailsDto
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                CategoryId = product.CategoryId,
+                ImageUrl = product.ImageUrl,
+                Rating = product.Rating
+
+            };
         }
     }
 }

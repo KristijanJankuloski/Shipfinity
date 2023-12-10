@@ -3,11 +3,6 @@ using Shipfinity.DataAccess.Context;
 using Shipfinity.DataAccess.Repositories.Interfaces;
 using Shipfinity.Domain.Models;
 using Shipfinity.Shared.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shipfinity.DataAccess.Repositories.Implementations
 {
@@ -25,7 +20,8 @@ namespace Shipfinity.DataAccess.Repositories.Implementations
             {
                 throw new OrderNotFoundException(id);
             }
-            _context.Orders.Remove(order);
+            order.IsDeleted=true;
+            _context.Orders.Update(order);
             await _context.SaveChangesAsync();
         }
 
@@ -38,6 +34,7 @@ namespace Shipfinity.DataAccess.Repositories.Implementations
         {
             return await _context.Orders
                 .Include(o => o.Customer)
+                .Include(o => o.Address)
                 .Include(o => o.ProductOrders)
                 .ThenInclude(po => po.Product)
                 .FirstOrDefaultAsync(o => o.Id == id);
@@ -61,6 +58,38 @@ namespace Shipfinity.DataAccess.Repositories.Implementations
         {
             _context.Orders.Update(entity);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<Order>> GetAllByUserIdAsync(int userId)
+        {
+            return await _context.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.ProductOrders)
+                .ThenInclude(po => po.Product)
+                .Where(o => o.CustomerId == userId)
+                .ToListAsync();
+        }
+
+        public async Task<List<Order>> GetAllByProductIdAsync(int productId)
+        {
+            return await _context.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.ProductOrders)
+                .ThenInclude(po => po.Product)
+                .Where(o => o.ProductOrders.Any(po => po.ProductId == productId))
+                .ToListAsync();
+        }
+
+        public async Task<PaymentInfo> GetMatching(string CardNumber, string ExpirationDate)
+        {
+            return await _context.PaymentInfos.FirstOrDefaultAsync(x => x.CardNumber == CardNumber && x.ExpirationDate == ExpirationDate);
+        }
+
+        public async Task<int> CreateAsync(Order order)
+        {
+            await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync();
+            return order.Id;
         }
     }
 }

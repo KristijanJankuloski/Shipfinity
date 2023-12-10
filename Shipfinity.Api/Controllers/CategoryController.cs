@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Shipfinity.Domain.Enums;
 using Shipfinity.DTOs.CategoryDTOs;
 using Shipfinity.Services.Interfaces;
-using Shipfinity.Shared.Exceptions;
 
 namespace Shipfinity.Api.Controllers
 {
@@ -19,6 +19,7 @@ namespace Shipfinity.Api.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<CategoryDto>> GetAllCategories()
         {
             try
@@ -34,6 +35,7 @@ namespace Shipfinity.Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult> GetCategoryById(int id)
         {
             if (id <= 0) return BadRequest("Invalid Id");
@@ -54,6 +56,7 @@ namespace Shipfinity.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<ActionResult> CreateCategory([FromBody] CreateCategoryDto createCategoryDto)
         {
             try
@@ -73,6 +76,7 @@ namespace Shipfinity.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<ActionResult> UpdateCategory(int id, [FromBody] UpdateCategoryDto updateCategoryDto)
         {
             try
@@ -93,6 +97,7 @@ namespace Shipfinity.Api.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<ActionResult> DeleteCategoryById(int id)
         {
             if (id <= 0)

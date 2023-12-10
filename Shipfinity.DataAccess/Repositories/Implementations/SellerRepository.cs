@@ -3,11 +3,6 @@ using Shipfinity.DataAccess.Context;
 using Shipfinity.DataAccess.Repositories.Interfaces;
 using Shipfinity.Domain.Models;
 using Shipfinity.Shared.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shipfinity.DataAccess.Repositories.Implementations
 {
@@ -34,9 +29,20 @@ namespace Shipfinity.DataAccess.Repositories.Implementations
             return await _context.Sellers.ToListAsync();
         }
 
+        public async Task<Seller> GetByEmailAsync(string email)
+        {
+            return await _context.Sellers.FirstOrDefaultAsync(c => c.Email == email);
+        }
+
         public async Task<Seller> GetByIdAsync(int id)
         {
             return await _context.Sellers.FirstOrDefaultAsync(s => s.Id == id);
+        }
+
+        public async Task<Seller> GetByUsernameAsync(string username)
+        {
+            return await _context.Sellers.FirstOrDefaultAsync(s => s.Username == username);
+            
         }
 
         public async Task<List<Seller>> GetRangeAsync(int start, int count)
