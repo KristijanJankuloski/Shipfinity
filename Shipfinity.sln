@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shipfinity.Api", "Shipfinit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shipfinity.Shared", "Shipfinity.Shared\Shipfinity.Shared.csproj", "{5E5E800B-3796-4DB1-9748-F7A823F03A99}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "shipfinity.frontend", "Shipfinity.Frontend\shipfinity.frontend.esproj", "{BBC00A1D-DA77-4EC3-9C53-97A76C9DD918}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shipfinity.DTOs", "Shipfinity.DTOs\Shipfinity.DTOs.csproj", "{1EE559C2-A5C2-46A8-81EF-2795BD293ED0}"
 EndProject
 Global
