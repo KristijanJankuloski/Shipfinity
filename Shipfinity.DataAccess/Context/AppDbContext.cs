@@ -18,9 +18,7 @@ namespace Shipfinity.DataAccess.Context
 
         public AppDbContext(DbContextOptions dbContextOptions) :
             base(dbContextOptions)
-        {
-            Database.Migrate();
-        }
+        { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
