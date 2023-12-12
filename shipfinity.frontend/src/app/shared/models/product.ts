@@ -35,6 +35,7 @@ export interface ProductEdit {
   description: string;
   price: number;
   categoryId: number;
+  discountPercentage?: number;
 }
 
 export interface ProductDetails {

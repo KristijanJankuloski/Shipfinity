@@ -26,7 +26,8 @@ export class ProductEditComponent implements OnInit, OnDestroy {
       name: new FormControl(this.product?.name?? '', [Validators.required]),
       categoryId: new FormControl(this.product?.categoryId?? 0, [Validators.required]),
       price: new FormControl(this.product?.price?? 0, [Validators.required]),
-      description: new FormControl(this.product?.description?? '')
+      description: new FormControl(this.product?.description?? ''),
+      discount: new FormControl(this.product?.discountPercentage?? 0)
     });
     this.sub = this.categoryService.categoryList$.subscribe(data => {
       this.categories = [...data];
@@ -48,7 +49,8 @@ export class ProductEditComponent implements OnInit, OnDestroy {
         name: this.productForm.value.name,
         categoryId: this.productForm.value.categoryId,
         price: this.productForm.value.price,
-        description: this.productForm.value.description
+        description: this.productForm.value.description,
+        discountPercentage: this.productForm.value.discount
       }
       this.submit.emit(prod);
       this.cancel.emit();

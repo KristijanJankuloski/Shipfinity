@@ -218,6 +218,7 @@
 
 .carousel-indicators {
   list-style: none;
+  align-items: flex-end;
 }
 
 /* --------------------------- */
