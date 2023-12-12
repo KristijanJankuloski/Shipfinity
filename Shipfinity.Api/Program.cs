@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using Shipfinity.Helpers;
 using System.Text;
 using Serilog;
+using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,10 @@ builder.Services.AddAuthentication(options =>
 builder.Services.InjectDbContext(builder.Configuration.GetConnectionString("ShipfinityDbString"));
 builder.Services.InjectRepositories();
 builder.Services.InjectServices();
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 12000000;
+});
 
 builder.Host.UseSerilog((ctx, lc) => lc.WriteTo.File("Logs/logs.txt"));
 
